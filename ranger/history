@@ -1,0 +1,49 @@
+open_with h
+open_with foxite-reader
+open_with wps
+open_with wpp
+find etc
+fin
+rename st-scrollback-mouse-altscreen-20190131-e23acb9.diff
+shell unzip Big\ Data-20190519T134142Z-001.zip
+rename Chahira
+filter b
+search
+search 
+open_with FoxitReader
+open_with subl
+shell subl Pins-Mapping.xlsx
+deletekj
+shell
+delet
+delete
+shell ll
+search home
+search .config
+search i3
+open_with 
+shell unzip Photos
+shell unzip Photos.zip
+open_with jjj
+rename IMG_20180122_144942q.jpg
+search ser
+search etc
+search X11
+search xession
+search xsess*
+shell 
+find 
+open_with 0
+open_with 0&
+open_with mpv -- "$@" &
+open_with 1
+open_with 2
+open_with 3
+shell -f 
+shell -f mpv -- "$@"
+shell mpv Alan\ Walker\ -\ Angels\ -\ YouTube.MP3
+shell ! mpv Alan\ Walker\ -\ Angels\ -\ YouTube.MP3
+
+shell mp
+shell mpv --force-window -- "$@"
+se

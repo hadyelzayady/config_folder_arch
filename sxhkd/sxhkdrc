@@ -1,0 +1,33 @@
+XF86Audio{Prev,Play,Next,LowerVolume,RaiseVolume}
+	playerctl --all-players {previous,play-pause,next}
+
+XF86Audio{LowerVolume,RaiseVolume,Mute}
+	amixer set 'Master'  {1%-,1%+,toggle}
+
+ctrl + shift + s
+	flameshot
+
+XF86MonBrightness{Down,Up}
+	light -{U,A} 3%
+
+super + {w,o}
+	{$BROWSER,$FILE}
+
+super + shift + BackSpace
+	prompt "Reboot computer?" "sudo -A shutdown -r now"
+
+super + shift + x
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+
+super + F12
+	$TERM -e sudo -A nmtui
+
+super + F4
+	displayselect
+
+super + shift + m
+	dmenumount
+
+super + shift + q
+	prompt "Exit DWM ?" "killall dwm"
+

@@ -16,8 +16,14 @@ super + {w,o}
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 
+super + shift + q
+	prompt "Exit DWM ?" "killall dwm"
+
 super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+
+super + shift + {m,s}
+	{dmenumount,flameshot gui}
 
 super + F12
 	$TERM -e sudo -A nmtui
@@ -25,9 +31,5 @@ super + F12
 super + F4
 	displayselect
 
-super + shift + m
-	dmenumount
 
-super + shift + q
-	prompt "Exit DWM ?" "killall dwm"
 

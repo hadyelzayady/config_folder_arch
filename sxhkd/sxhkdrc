@@ -31,5 +31,8 @@ super + F12
 super + F4
 	displayselect
 
+alt + grave
+	clipmenu
 
-
+alt + ctrl + l
+	lockscreen

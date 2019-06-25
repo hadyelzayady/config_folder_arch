@@ -17,3 +17,8 @@ set -g GTK_THEME Adwaita:light
 # <<< conda initialize <<<
 set -U dangerous_nogreeting
 source ~/.profile
+
+abbr g "git"
+abbr v "$EDITOR"
+abbr e "$EDITOR"
+abbr p "sudo pacman"

@@ -16,12 +16,14 @@ Plug 'jreybert/vimagit'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-"set clipboard+=unnamedplus
+set clipboard=unnamedplus
 "set clipboard+=unnamed
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+"noremap <Leader>y "*y
+"noremap <Leader>p "*p
+"noremap <Leader>Y "+y
+"noremap <Leader>P "+p
+map <Leader>y "*y
+map <Leader>p "*p
 "init of plugins
 "let g:deoplete#enable_at_startup = 1
 "remove default statusline

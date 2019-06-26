@@ -8,7 +8,7 @@ ctrl + shift + s
 	flameshot
 
 XF86MonBrightness{Down,Up}
-	light -{U,A} 3%
+	light -{U,A} 2%
 
 super + {w,o}
 	{$BROWSER,$FILE}
@@ -26,7 +26,7 @@ super + shift + {m,s}
 	{dmenumount,flameshot gui}
 
 super + F12
-	$TERM -e sudo -A nmtui
+	$TERM -e  nmtui
 
 super + F4
 	displayselect
@@ -36,3 +36,5 @@ alt + grave
 
 alt + ctrl + l
 	lockscreen
+super + {bracketleft,bracketright}
+	transset-df {--dec,--inc} .08 -a

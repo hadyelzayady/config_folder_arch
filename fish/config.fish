@@ -16,7 +16,6 @@ set -g GTK_THEME Adwaita:light
 #eval (eval /home/hady/anaconda3/bin/conda "shell.fish" "hook" $argv)
 # <<< conda initialize <<<
 set -U dangerous_nogreeting
-source ~/.profile
 
 abbr g "git"
 abbr v "$EDITOR"

@@ -1,15 +1,22 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR DOTNET_ROOT:/home/hady/dotnet
 SETUVAR __fish_init_2_39_8:\x1d
 SETUVAR __fish_init_2_3_0:\x1d
 SETUVAR __fish_init_3_x:\x1d
 SETUVAR _fish_abbr_e:nvim
 SETUVAR _fish_abbr_g:git
+SETUVAR _fish_abbr_gd:git\x20diff
+SETUVAR _fish_abbr_gm:git\x20add\x20\x2e\x20\x26\x26\x20git\x20commit\x20\x2dm
+SETUVAR _fish_abbr_gp:git\x20push
+SETUVAR _fish_abbr_gs:git\x20status
+SETUVAR _fish_abbr_nu:nvim\x20/dev/null
 SETUVAR _fish_abbr_p:sudo\x20pacman
+SETUVAR _fish_abbr_sys:sudo\x20systemctl
 SETUVAR _fish_abbr_v:nvim
 SETUVAR bookmarks:/home/hady
 SETUVAR dangerous_colors:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
-SETUVAR dangerous_cursors:\x5c033\x5d12\x3b\x23268bd2\x5c007\x1e\x5c033\x5d12\x3b\x23b58900\x5c007\x1e\x5c033\x5d12\x3b\x23af005f\x5c007\x1e\x5c033\x5d12\x3b\x236c71c4\x5c007
+SETUVAR dangerous_cursors:\x1e\x1e\x1e
 SETUVAR dangerous_day:000000\x1e333333\x1e666666\x1effffff\x1effff00\x1eff6600\x1eff0000\x1eff0033\x1e3300ff\x1e00aaff\x1e00ffff\x1e00ff00
 SETUVAR dangerous_night:000000\x1e083743\x1e445659\x1efdf6e3\x1eb58900\x1ecb4b16\x1edc121f\x1eaf005f\x1e6c71c4\x1e268bd2\x1e2aa198\x1e859900
 SETUVAR dangerous_nocmdhist:c\x1ed\x1ell\x1els\x1em\x1es
@@ -44,4 +51,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:white\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_user_paths:/home/hady/scripts/
+SETUVAR fish_user_paths:/home/hady/scripts/\x1e/home/hady/\x2efzf/bin

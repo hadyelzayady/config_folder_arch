@@ -10,8 +10,11 @@ ctrl + shift + s
 XF86MonBrightness{Down,Up}
 	light -{U,A} 2%
 
-super + {w,o}
-	{$BROWSER,$FILE}
+super +{ F2,F3}
+	light -{U,A} 2%
+
+super + {w,o,e,u}
+	{$BROWSER,$FILE,$TERMINAL ranger,$TERMINAL calcurse}
 
 super + shift + BackSpace
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
@@ -22,19 +25,29 @@ super + shift + q
 super + shift + x
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
 
+super + shift + z
+	suspend_menu
+
+super + Print
+	dmenurecord
+
+super + Delete
+	dmenurecord kill
+
 super + shift + {m,s}
 	{dmenumount,flameshot gui}
 
 super + F12
-	$TERM -e  nmtui
+	networkmanager_dmenu	
 
 super + F4
 	displayselect
 
 alt + grave
-	clipmenu
+	copyq toggle
 
 alt + ctrl + l
 	lockscreen
+
 super + {bracketleft,bracketright}
 	transset-df {--dec,--inc} .08 -a

@@ -17,7 +17,12 @@ set -g GTK_THEME Adwaita:light
 # <<< conda initialize <<<
 set -U dangerous_nogreeting
 
-abbr g "git"
+abbr gm "git add . && git commit -m"
+abbr gp "git push"
+abbr gs "git status"
+abbr gd "git diff"
 abbr v "$EDITOR"
 abbr e "$EDITOR"
 abbr p "sudo pacman"
+abbr sys "sudo systemctl"
+abbr nu  "nvim /dev/null"

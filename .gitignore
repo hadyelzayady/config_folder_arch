@@ -19,3 +19,12 @@ p3x-onenote/
 spotify/
 sublime-text-3/
 xfce4/
+Trolltech.conf
+nvim/autoload/
+nvim/plugged/goyo.vim/
+nvim/plugged/i3-vim-syntax/
+nvim/plugged/vifm.vim/
+nvim/plugged/vim-commentary/
+nvim/plugged/vimling/
+nvim/plugged/vimwiki/
+urxvtconfig/

@@ -1,243 +1,179 @@
-let mapleader = ","
-call plug#begin()
-"autocom
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-clang'
-Plug 'tpope/vim-surround'
-"Plug 'vim-airline/vim-airline'
-Plug '~/.fzf'
+let mapleader =","
 
-" autocomplete - deoplete 
-"Plug 'Rip-Rip/clang_complete'
-
-" autocompletion (also a linter - diagnostics)
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer' }
-
-" autocomplete - roxma
-"Plug 'roxma/nvim-completion-manager'
-"Plug 'roxma/ncm-clang'
- 
-" ale - linter / autocompletion / formatter
-Plug 'w0rp/ale'
-
-" auto formatter
-Plug 'rhysd/vim-clang-format'
-
-" nerd tree
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-"Plug 'scrooloose/nerdcommenter'
-Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'vim-scripts/DfrankUtil'
-"Plug 'vim-scripts/vimprj'
-"Plug 'vim-scripts/indexer.tar.gz'
-"Plug 'SirVer/ultisnips'
-
-" easy motion
-"Plug 'easymotion/vim-easymotion'
-
-" A - for switching between source and header files
-"Plug 'vim-scripts/a.vim'
-
-
-
-
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'kovetskiy/sxhkd-vim' " keys binding
-"typescript
-"Plug 'HerringtonDarkholme/yats.vim'
-"Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-" For Denite features
-"Plug 'Shougo/denite.nvim'
-Plug 'tpope/vim-surround'
-Plug 'jreybert/vimagit'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-call plug#end()
-set clipboard=unnamedplus
-"set clipboard+=unnamed
-"noremap <Leader>y "*y
-"noremap <Leader>p "*p
-"noremap <Leader>Y "+y
-"noremap <Leader>P "+p
-map <Leader>y "*y
-map <Leader>p "*p
-noremap <C-N> :FZF<cr> 
-"init of plugins
-"let g:deoplete#enable_at_startup = 1
-"remove default statusline
-set noshowmode
-set number
-color dracula
-"set encoding=utf-8
-"end init of plugins
-" mapping keys
-" choose from deoplete autocomplete menu by ctr+j,ctrl+k (2 lines)
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-nmap <leader>ne :NERDTreeToggle<cr>
-" end mapping keys
-"make path if not exist .ex: nvim ~/blah/blah/blah.cpp will auto
-"create these directories
-"function s:MkNonExDir(file, buf)
-"    if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
-"        let dir=fnamemodify(a:file, ':h')
-"        if !isdirectory(dir)
-"            call mkdir(dir, 'p')
-"        endif
-"    end iDTree #########################
-
-" quit nerd tree on file open
-let g:NERDTreeQuitOnOpen = 1
-
-" show nerd tree always on the right instead on the left
-let g:NERDTreeWinPos = "right"
-
-" ################ UltiSnips ########################
-
-" make a dir Ultisnips in: '~/.config/nvim/UltiSnips/'
-" and put your snippets in there
-" eg. cpp.snippets
-
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-let g:UltiSnipsUsePythonVersion = 3
-set expandtab
-set shiftwidth=4
-" ################ Clang complete ###################
-
-"let g:clang_use_library = 1
-"let g:clang_library_path='/usr/lib/llvm-5.0/lib/libclang.so.1'
-"let g:clang_periodic_quickfix=1
-"let g:clang_auto_select = 1
-
-"let g:clang_snippets = 1
-"let g:clang_snippets_engine = 'ultisnips'
-
-" I don't know how to change the keybindings to navigate
-" the 'completion suggestions menu' with ctrl+k and ctrl+l
-"inoremap <C-k> <Down>
-"inoremap <C-l> <Up>
-
-
-" ################ YouCompleteMe ####################
-
-let g:ycm_show_diagnostics_ui = 0
-
-let g:ycm_key_list_select_completion = ['<C-k>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-l>', '<Up>']
-let g:SuperTabDefaulCompletionType = '<C-k>'
-
-" disable annoying ycm confirmation
-let g:ycm_confirm_extra_conf = 1
-
-" add path to ycm_extra_conf.py (you could also copy the file in the home folder)
-" delete '...98' argument from .ycm_extra_conf.py, otherwise syntastic does
-" not work properly
-let g:ycm_global_ycm_extra_conf = '/home/hady/.config/nvim/plugged/YouCompleteMe/.ycm_extra_conf.py'
-
- 
-" ################ Ale ##############################
- 
-" autocompletion
-let g:ale_completion_enabled = 1
-
-let g:ale_cpp_clang_executable = 'clang++-5.0'
-
-" linter
- let g:ale_linters = {
-            \   'cpp': ['clang']
-            \}
-let g:ale_cpp_clang_options = '-std=c++1z -O0 -Wextra -Wall -Wpedantic -I /usr/include/eigen3'
-"let g:ale_cpp_clangtidy_options = '-checks="cppcoreguidelines-*"'
-"let g:ale_cpp_cpplint_options = ''
-"let g:ale_cpp_gcc_options = ''
-"let g:ale_cpp_clangcheck_options = ''
-"let g:ale_cpp_cppcheck_options = ''
-
-
-" ################ Clang format #####################
- 
-" Clang format - auto formatting
- 
-let g:clang_format#command = 'clang-format-3.8'
-let g:clang_format#style_options = {
-            \ "BreakBeforeBraces" : "Attach",
-            \ "UseTab" : "Never",
-            \ "IndentWidth" : 4,
-            \ "ColumnLimit" : 100,
-	    \ "AccessModifierOffset": -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "false",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \}
-
-" shortcuts for autoformatting the entire file: Ctrl+j
-inoremap <C-j> <Esc>:ClangFormat<CR>a
-nnoremap <C-j> <Esc>:ClangFormat<CR>
-
-
-" ################ A ################################
-
-"augroup BWCCreateDir
-"    autocmd!
-"    autocmd BufWritePre * :call s:MkNonExDir(expand('<afile>'), +expand('<abuf>'))
-"augroup END
-"end make path
-command! -nargs=0 Sw w !sudo tee % > /dev/null
-
-if exists('veonim')
-set guifont=SF\ Mono:h16
-set linespace=10
-" built-in plugin manager
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-surround'
-
-" extensions for web dev
-let g:vscode_extensions = [
-  \'vscode.typescript-language-features',
-  \'vscode.json-language-features',
-  \'vscode.css-language-features',
-  \'vscode.markdown-language-features',
-  \'vscode.html-language-features',
-  \'ms-python.python',
-\]
-
-" multiple nvim instances
-nno <silent> <c-t>c :Veonim vim-create<cr>
-nno <silent> <c-g> :Veonim vim-switch<cr>
-nno <silent> <c-t>, :Veonim vim-rename<cr>
-
-" workspace functions
-nno <silent> ,f :Veonim files<cr>
-nno <silent> ,e :Veonim explorer<cr>
-nno <silent> ,b :Veonim buffers<cr>
-nno <silent> ,d :Veonim change-dir<cr>
-"or with a starting dir: nno <silent> ,d :Veonim change-dir ~/proj<cr>
-
-" searching text
-nno <silent> <space>fw :Veonim grep-word<cr>
-vno <silent> <space>fw :Veonim grep-selection<cr>
-nno <silent> <space>fa :Veonim grep<cr>
-nno <silent> <space>ff :Veonim grep-resume<cr>
-nno <silent> <space>fb :Veonim buffer-search<cr>
-
-" language features
-nno <silent> sr :Veonim rename<cr>
-nno <silent> sd :Veonim definition<cr>
-nno <silent> si :Veonim implementation<cr>
-nno <silent> st :Veonim type-definition<cr>
-nno <silent> sf :Veonim references<cr>
-nno <silent> sh :Veonim hover<cr>
-nno <silent> sl :Veonim symbols<cr>
-nno <silent> so :Veonim workspace-symbols<cr>
-nno <silent> sq :Veonim code-action<cr>
-nno <silent> sk :Veonim highlight<cr>
-nno <silent> sK :Veonim highlight-clear<cr>
-nno <silent> ,n :Veonim next-usage<cr>
-nno <silent> ,p :Veonim prev-usage<cr>
-nno <silent> sp :Veonim show-problem<cr>
-nno <silent> <c-n> :Veonim next-problem<cr>
-nno <silent> <c-p> :Veonim prev-problem<cr>
-
+if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ~/.config/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
 endif
 
+call plug#begin('~/.config/nvim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
+Plug 'junegunn/goyo.vim'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'jreybert/vimagit'
+Plug 'LukeSmithxyz/vimling'
+Plug 'vimwiki/vimwiki'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-commentary'
+Plug 'vifm/vifm.vim'
+Plug 'kovetskiy/sxhkd-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug '~/.fzf'
+call plug#end()
+
+set bg=light
+set go=a
+set mouse=a
+set nohlsearch
+set clipboard+=unnamedplus
+
+" Some basics:
+	nnoremap c "_c
+	set nocompatible
+	filetype plugin on
+	syntax on
+	set encoding=utf-8
+	set number relativenumber
+" Enable autocompletion:
+	set wildmode=longest,list,full
+" Disables automatic commenting on newline:
+	autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Goyo plugin makes text more readable when writing prose:
+	map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+
+" Spell-check set to <leader>o, 'o' for 'orthography':
+	map <leader>o :setlocal spell! spelllang=en_us<CR>
+
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+	set splitbelow splitright
+
+"fuzzy file seach
+noremap <C-N> :FZF<cr>
+
+" Nerd tree
+	map <leader>n :NERDTreeToggle<CR>
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" vimling:
+	nm <leader>d :call ToggleDeadKeys()<CR>
+	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
+	nm <leader>i :call ToggleIPA()<CR>
+	imap <leader>i <esc>:call ToggleIPA()<CR>a
+	nm <leader>q :call ToggleProse()<CR>
+
+" Shortcutting split navigation, saving a keypress:
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
+
+" Check file in shellcheck:
+	map <leader>s :!clear && shellcheck %<CR>
+
+" Ensure files are read as what I want:
+	let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+	let g:vimwiki_list = [{'path': '~/vimwiki', 'syntax': 'markdown', 'ext': '.md'}]
+	autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
+	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
+	autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" Enable Goyo by default for mutt writting
+	" Goyo's width will be the line limit in mutt.
+	autocmd BufRead,BufNewFile /tmp/neomutt* let g:goyo_width=80
+	autocmd BufRead,BufNewFile /tmp/neomutt* :Goyo \| set bg=light
+
+" Automatically deletes all trailing whitespace on save.
+	autocmd BufWritePre * %s/\s\+$//e
+
+" When shortcut files are updated, renew bash and vifm configs with new material:
+	autocmd BufWritePost ~/.config/bmdirs,~/.config/bmfiles !shortcuts
+
+" Update binds when sxhkdrc is updated.
+	autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
+
+" Run xrdb whenever Xdefaults or Xresources are updated.
+	autocmd BufWritePost *Xresources,*Xdefaults !xrdb %
+
+" Navigating with guides
+	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
+	map <leader><leader> <Esc>/<++><Enter>"_c4l
+
+" Save file as sudo on files that require root permission
+	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+
+"""HTML
+	autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
+	autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
+	autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i
+	autocmd FileType html inoremap ,p <p></p><Enter><Enter><++><Esc>02kf>a
+	autocmd FileType html inoremap ,a <a<Space>href=""><++></a><Space><++><Esc>14hi
+	autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
+	autocmd FileType html inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><++><Esc>03kf<i
+	autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
+	autocmd FileType html inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><++><Esc>03kf<i
+	autocmd FileType html inoremap ,im <img src="" alt="<++>"><++><esc>Fcf"a
+	autocmd FileType html inoremap ,td <td></td><++><Esc>Fdcit
+	autocmd FileType html inoremap ,tr <tr></tr><Enter><++><Esc>kf<i
+	autocmd FileType html inoremap ,th <th></th><++><Esc>Fhcit
+	autocmd FileType html inoremap ,tab <table><Enter></table><Esc>O
+	autocmd FileType html inoremap ,gr <font color="green"></font><Esc>F>a
+	autocmd FileType html inoremap ,rd <font color="red"></font><Esc>F>a
+	autocmd FileType html inoremap ,yl <font color="yellow"></font><Esc>F>a
+	autocmd FileType html inoremap ,dt <dt></dt><Enter><dd><++></dd><Enter><++><esc>2kcit
+	autocmd FileType html inoremap ,dl <dl><Enter><Enter></dl><enter><enter><++><esc>3kcc
+	autocmd FileType html inoremap &<space> &amp;<space>
+	autocmd FileType html inoremap á &aacute;
+	autocmd FileType html inoremap é &eacute;
+	autocmd FileType html inoremap í &iacute;
+	autocmd FileType html inoremap ó &oacute;
+	autocmd FileType html inoremap ú &uacute;
+	autocmd FileType html inoremap ä &auml;
+	autocmd FileType html inoremap ë &euml;
+	autocmd FileType html inoremap ï &iuml;
+	autocmd FileType html inoremap ö &ouml;
+	autocmd FileType html inoremap ü &uuml;
+	autocmd FileType html inoremap ã &atilde;
+	autocmd FileType html inoremap ẽ &etilde;
+	autocmd FileType html inoremap ĩ &itilde;
+	autocmd FileType html inoremap õ &otilde;
+	autocmd FileType html inoremap ũ &utilde;
+	autocmd FileType html inoremap ñ &ntilde;
+	autocmd FileType html inoremap à &agrave;
+	autocmd FileType html inoremap è &egrave;
+	autocmd FileType html inoremap ì &igrave;
+	autocmd FileType html inoremap ò &ograve;
+	autocmd FileType html inoremap ù &ugrave;
+
+
+""".bib
+	autocmd FileType bib inoremap ,a @article{<Enter>author<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>journal<Space>=<Space>{<++>},<Enter>volume<Space>=<Space>{<++>},<Enter>pages<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>8kA,<Esc>i
+	autocmd FileType bib inoremap ,b @book{<Enter>author<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>publisher<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>6kA,<Esc>i
+	autocmd FileType bib inoremap ,c @incollection{<Enter>author<Space>=<Space>{<++>},<Enter>title<Space>=<Space>{<++>},<Enter>booktitle<Space>=<Space>{<++>},<Enter>editor<Space>=<Space>{<++>},<Enter>year<Space>=<Space>{<++>},<Enter>publisher<Space>=<Space>{<++>},<Enter>}<Enter><++><Esc>8kA,<Esc>i
+
+"MARKDOWN
+	autocmd Filetype markdown,rmd map <leader>w yiWi[<esc>Ea](<esc>pa)
+	autocmd Filetype markdown,rmd inoremap ,n ---<Enter><Enter>
+	autocmd Filetype markdown,rmd inoremap ,b ****<++><Esc>F*hi
+	autocmd Filetype markdown,rmd inoremap ,s ~~~~<++><Esc>F~hi
+	autocmd Filetype markdown,rmd inoremap ,e **<++><Esc>F*i
+	autocmd Filetype markdown,rmd inoremap ,h ====<Space><++><Esc>F=hi
+	autocmd Filetype markdown,rmd inoremap ,i ![](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ,a [](<++>)<++><Esc>F[a
+	autocmd Filetype markdown,rmd inoremap ,1 #<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,2 ##<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,3 ###<Space><Enter><++><Esc>kA
+	autocmd Filetype markdown,rmd inoremap ,l --------<Enter>
+	autocmd Filetype rmd inoremap ,r ```{r}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype rmd inoremap ,p ```{python}<CR>```<CR><CR><esc>2kO
+	autocmd Filetype rmd inoremap ,c ```<cr>```<cr><cr><esc>2kO
+
+""".xml
+	autocmd FileType xml inoremap ,e <item><Enter><title><++></title><Enter><guid<space>isPermaLink="false"><++></guid><Enter><pubDate><Esc>:put<Space>=strftime('%a, %d %b %Y %H:%M:%S %z')<Enter>kJA</pubDate><Enter><link><++></link><Enter><description><![CDATA[<++>]]></description><Enter></item><Esc>?<title><enter>cit
+	autocmd FileType xml inoremap ,a <a href="<++>"><++></a><++><Esc>F"ci"

@@ -4,14 +4,14 @@ XF86Audio{Prev,Play,Next,LowerVolume,RaiseVolume}
 XF86Audio{LowerVolume,RaiseVolume,Mute}
 	amixer set 'Master'  {1%-,1%+,toggle}
 
-ctrl + shift + s
-	flameshot
-
 XF86MonBrightness{Down,Up}
+	light -{U,A} 4%
+
+super +{ F5,F6}
 	light -{U,A} 2%
 
-super +{ F2,F3}
-	light -{U,A} 2%
+super + {n}
+	rofi -show combi -modi combi,window,run,keys
 
 super + {w,o,e,u}
 	{$BROWSER,$FILE,$TERMINAL ranger,$TERMINAL calcurse}
@@ -37,16 +37,16 @@ super + Delete
 super + shift + {m,s}
 	{dmenumount,flameshot gui}
 
-super + F12
+super + F8
 	networkmanager_dmenu	
 
-super + F4
+super + F7
 	displayselect
 
 alt + grave
 	copyq toggle
 
-alt + ctrl + l
+super + shift + l
 	lockscreen
 
 super + {bracketleft,bracketright}

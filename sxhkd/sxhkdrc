@@ -17,13 +17,13 @@ super + {w,o,e,u}
 	{$BROWSER,$FILE,$TERMINAL ranger,$TERMINAL calcurse}
 
 super + shift + BackSpace
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
+	prompt "Reboot computer?" "shutdown -r now"
 
 super + shift + q
 	prompt "Exit DWM ?" "killall dwm"
 
 super + shift + x
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+	prompt "Shutdown computer?" "shutdown -h now"
 
 super + shift + z
 	suspend_menu
@@ -38,7 +38,7 @@ super + shift + {m,s}
 	{dmenumount,flameshot gui}
 
 super + F8
-	networkmanager_dmenu	
+	networkmanager_dmenu
 
 super + F7
 	displayselect
